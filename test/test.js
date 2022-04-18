@@ -3,8 +3,8 @@ const { ethers } = require("hardhat");
 
 describe("Greeter", function () {
   it("should not mint 4 kinds of tokens", async function () {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy();
+    const Greeter = await ethers.getContractFactory("AddTo0");
+    const greeter = await Greeter.deploy("");
     await greeter.deployed();
     const tx0 = await greeter.mintBatch(
       "0x6e10884FD7a640BC181b496C33EB2f3d722376ab",

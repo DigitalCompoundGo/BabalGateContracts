@@ -11,11 +11,7 @@ contract AddTo0 is ERC1155PresetMinterPauser {
     uint256 public constant FINANCE = 2;
     uint256 public constant TECH = 3;
 
-    constructor()
-        ERC1155PresetMinterPauser(
-            "https://addto0.digitalcompound.org/item/{id}.json"
-        )
-    {}
+    constructor(string memory uri) ERC1155PresetMinterPauser(uri) {}
 
     function holderTokenSpeciesCount(address _holder)
         public
