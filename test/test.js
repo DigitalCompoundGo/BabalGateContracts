@@ -8,7 +8,7 @@ describe("Greeter", function () {
     await greeter.deployed();
     const tx0 = await greeter.mintBatch(
       "0x6e10884FD7a640BC181b496C33EB2f3d722376ab",
-      [1, 2, 3],
+      [0, 1, 2],
       [1, 1, 1],
       []
     );
@@ -17,7 +17,7 @@ describe("Greeter", function () {
     await tx0.wait();
     console.log("aaa");
     await expect(
-      greeter.mint("0x6e10884FD7a640BC181b496C33EB2f3d722376ab", 4, 1, [])
+      greeter.mint("0x6e10884FD7a640BC181b496C33EB2f3d722376ab", 3, 1, [])
     ).to.be.reverted;
   });
 });

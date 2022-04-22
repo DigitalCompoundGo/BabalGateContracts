@@ -8,10 +8,10 @@ import "@openzeppelin/contracts/token/ERC1155/presets/ERC1155PresetMinterPauser.
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract AddTo0 is ERC1155, ERC1155PresetMinterPauser {
-    uint256 public constant FINANCE = 1;
-    uint256 public constant CONSUME = 2;
-    uint256 public constant TECH = 3;
-    uint256 public constant ART = 4;
+    uint256 public constant FINANCE = 0;
+    uint256 public constant CONSUME = 1;
+    uint256 public constant TECH = 2;
+    uint256 public constant ART = 3;
     // Used as the URI for all token types by relying on ID substitution, e.g. https://token-cdn-domain/{id}.json
     string private _baseuri;
 
@@ -71,7 +71,7 @@ contract AddTo0 is ERC1155, ERC1155PresetMinterPauser {
         view
         returns (uint8[] memory)
     {
-        uint8[] memory species = new uint8[](5);
+        uint8[] memory species = new uint8[](4);
         if (ERC1155.balanceOf(holder, ART) > 0) species[ART] = 1;
         if (ERC1155.balanceOf(holder, CONSUME) > 0) species[CONSUME] = 1;
         if (ERC1155.balanceOf(holder, FINANCE) > 0) species[FINANCE] = 1;
@@ -96,7 +96,7 @@ contract AddTo0 is ERC1155, ERC1155PresetMinterPauser {
                 }
             }
             uint8 count = 0;
-            for (uint256 i = 1; i <= 4; i++) {
+            for (uint256 i = 0; i < species.length; i++) {
                 if (species[i] > 0) count++;
             }
             require(count < 4, "too many tokens types");
