@@ -16,7 +16,7 @@ async function main() {
   // We get the contract to deploy
   const AddTo0 = await hre.ethers.getContractFactory("AddTo0");
   const contract = await AddTo0.deploy(
-    process.env.TokenURI || "https://addto0.digitalcompound.org/item/{id}.json"
+    process.env.TokenURI || "https://addto0.digitalcompound.org/item/"
   );
 
   await contract.deployed();
