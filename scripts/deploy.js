@@ -14,9 +14,11 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const AddTo0 = await hre.ethers.getContractFactory("AddTo0");
-  const contract = await AddTo0.deploy(
-    process.env.TokenURI || "https://addto0.digitalcompound.org/item/"
+  const BabelGate = await hre.ethers.getContractFactory("BabelGate");
+  const contract = await BabelGate.deploy(
+    "BabelGate",
+    "BG",
+    process.env.TokenURI || "https://babelgate-eth.digitalcompound.org/tokens/"
   );
 
   await contract.deployed();
