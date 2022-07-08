@@ -24,6 +24,11 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   solidity: "0.8.4",
   networks: {
+    mainnet: {
+      url: process.env.ETHEREUM_URL || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
     ropsten: {
       url: process.env.ROPSTEN_URL || "",
       accounts:

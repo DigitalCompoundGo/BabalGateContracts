@@ -18,12 +18,13 @@ async function main() {
   const contract = await BabelGate.deploy(
     "BabelGate",
     "BG",
-    process.env.TokenURI || "https://babelgate-eth.digitalcompound.org/tokens/"
+    process.env.TokenURI || "https://babelgate-eth.digitalcompound.org/tokens/",
+    "10000000000000000"
   );
 
   await contract.deployed();
 
-  console.log("AddTo0 deployed to:", contract.address);
+  console.log("Babelgate deployed to:", contract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
